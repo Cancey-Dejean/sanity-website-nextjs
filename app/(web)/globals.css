@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --black: #0d0e12;
+        --white: #fff;
+        --cyan-50: #e7fefe;
+        --cyan-100: #c5fcfc;
+        --cyan-200: #96f8f8;
+        --cyan-300: #62efef;
+        --cyan-400: #18e2e2;
+        --cyan-500: #04b8be;
+        --cyan-600: #037782;
+        --cyan-700: #024950;
+        --cyan-800: #042f34;
+        --cyan-900: #072227;
+        --cyan-950: #0d181c;
+        --gray-50: #f6f6f8;
+        --gray-100: #eeeef1;
+        --gray-200: #e3e4e8;
+        --gray-300: #bbbdc9;
+        --gray-400: #9499ad;
+        --gray-500: #727892;
+        --gray-600: #515870;
+        --gray-700: #383d51;
+        --gray-800: #252837;
+        --gray-900: #1b1d27;
+        --gray-950: #13141b;
+        --blue-50: #e8f0fc;
+        --blue-100: #d2e2fa;
+        --blue-200: #a5c5f6;
+        --blue-300: #79a8f1;
+        --blue-400: #4c8bed;
+        --blue-500: #206ee9;
+        --blue-600: #1c5bbe;
+        --blue-700: #194892;
+        --blue-800: #163668;
+        --blue-900: #13233c;
+        --blue-950: #111a27;
+        --purple-50: #f8f5ff;
+        --purple-100: #f1ebff;
+        --purple-200: #ece1fe;
+        --purple-300: #ccb1fc;
+        --purple-400: #b087f7;
+        --purple-500: #8f57ef;
+        --purple-600: #721fe5;
+        --purple-700: #4c1a9e;
+        --purple-800: #2f1862;
+        --purple-900: #23173f;
+        --purple-950: #181128;
+        --magenta-50: #fcebf5;
+        --magenta-100: #f9d7eb;
+        --magenta-200: #f4afd8;
+        --magenta-300: #ef87c4;
+        --magenta-400: #ea5fb1;
+        --magenta-500: #e5389e;
+        --magenta-600: #ba3082;
+        --magenta-700: #8f2866;
+        --magenta-800: #65204a;
+        --magenta-900: #3a182d;
+        --magenta-950: #25141f;
+        --red-50: #fff6f5;
+        --red-100: #ffe7e5;
+        --red-200: #ffdedc;
+        --red-300: #fdada5;
+        --red-400: #f77769;
+        --red-500: #ef4434;
+        --red-600: #cc2819;
+        --red-700: #8b2018;
+        --red-800: #4d1714;
+        --red-900: #321615;
+        --red-950: #1e1011;
+        --orange-50: #fcf1e8;
+        --orange-100: #f9e3d2;
+        --orange-200: #f4c7a6;
+        --orange-300: #efab7a;
+        --orange-400: #ea8f4e;
+        --orange-500: #e57322;
+        --orange-600: #ba5f1e;
+        --orange-700: #8f4b1b;
+        --orange-800: #653818;
+        --orange-900: #3a2415;
+        --orange-950: #251a13;
+        --yellow-50: #fefae1;
+        --yellow-100: #fcf3bb;
+        --yellow-200: #f9e994;
+        --yellow-300: #f7d455;
+        --yellow-400: #f9bc15;
+        --yellow-500: #d28a04;
+        --yellow-600: #965908;
+        --yellow-700: #653a0b;
+        --yellow-800: #3b220c;
+        --yellow-900: #271a11;
+        --yellow-950: #181410;
+        --green-50: #e7f9ed;
+        --green-100: #d0f4dc;
+        --green-200: #a1eaba;
+        --green-300: #72e097;
+        --green-400: #43d675;
+        --green-500: #3ab564;
+        --green-600: #329454;
+        --green-700: #297343;
+        --green-800: #215233;
+        --green-900: #183122;
+        --green-950: #14211a;
+
+
+
+        --background: 0 0% 100%;
+        --foreground: 0 0% 3.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 0 0% 3.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 0 0% 3.9%;
+        --primary: 0 0% 9%;
+        --primary-foreground: 0 0% 98%;
+        --secondary: 0 0% 96.1%;
+        --secondary-foreground: 0 0% 9%;
+        --muted: 0 0% 96.1%;
+        --muted-foreground: 0 0% 45.1%;
+        --accent: 0 0% 96.1%;
+        --accent-foreground: 0 0% 9%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 0 0% 89.8%;
+        --input: 0 0% 89.8%;
+        --ring: 0 0% 3.9%;
+        --radius: 0.5rem;
+        --chart-1: 12 76% 61%;
+        --chart-2: 173 58% 39%;
+        --chart-3: 197 37% 24%;
+        --chart-4: 43 74% 66%;
+        --chart-5: 27 87% 67%;
+    }
+
+    .dark {
+        --background: 0 0% 3.9%;
+        --foreground: 0 0% 98%;
+        --card: 0 0% 3.9%;
+        --card-foreground: 0 0% 98%;
+        --popover: 0 0% 3.9%;
+        --popover-foreground: 0 0% 98%;
+        --primary: 0 0% 98%;
+        --primary-foreground: 0 0% 9%;
+        --secondary: 0 0% 14.9%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 0 0% 14.9%;
+        --muted-foreground: 0 0% 63.9%;
+        --accent: 0 0% 14.9%;
+        --accent-foreground: 0 0% 98%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 0 0% 14.9%;
+        --input: 0 0% 14.9%;
+        --ring: 0 0% 83.1%;
+        --chart-1: 220 70% 50%;
+        --chart-2: 160 60% 45%;
+        --chart-3: 30 80% 55%;
+        --chart-4: 280 65% 60%;
+        --chart-5: 340 75% 55%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
