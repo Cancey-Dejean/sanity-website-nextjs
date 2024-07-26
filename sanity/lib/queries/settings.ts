@@ -1,28 +1,30 @@
-import { groq } from "next-sanity"
+import { groq } from "next-sanity";
 
-// Get Sitesettings
+// Get Site settings
 const SETTINGS_QUERY = groq`
  "settings": *[_type == "siteSettings"] {
     companyName
   }
-`
+`;
 
 // Get Header Settings
 const HEADER_QUERY = groq`
   "header": *[_type == "header"][0] {
-    "logoImage": logoImage.asset->url,
-    "logoImageAlt": logoImage.alt,
-    menu-> {
-      ...,
-      menuList [] {
-        cta,
+    "logoImage": logo.asset->url,
+    "logoImageAlt": logo.alt,
+    menu [] {
+      label,
+      menuColumns [] {
         label,
-        newTab,
-        url
+        callToAction {
+          label,
+          url,
+          newTab,
+        }
       }
     }
   }
-`
+`;
 
 // Get Footer Settings
 const FOOTER_QUERY = groq`
@@ -42,11 +44,9 @@ const FOOTER_QUERY = groq`
     },
     text
   }
-`
+`;
 
 // Get All Settings
 export const ALL_SETTINGS_QUERY = groq`{
-  ${SETTINGS_QUERY},
   ${HEADER_QUERY},
-  ${FOOTER_QUERY}
-}`
+}`;

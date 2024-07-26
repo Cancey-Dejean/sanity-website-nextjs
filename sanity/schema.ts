@@ -11,6 +11,9 @@ import { link } from "@/sanity/schemas/objects/link";
 import { subMenuDocs } from "@/sanity/schemas/objects/subMenuDocs";
 import { subMenuResources } from "@/sanity/schemas/objects/subMenuResources";
 import { customUrl } from "@/sanity/schemas/objects/customUrl";
+import { heroSection } from "@/sanity/schemas/sections/hero";
+import page from "@/sanity/schemas/documents/page";
+import { pageBlocks } from "@/sanity/schemas/objects/pageBlocks";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -18,6 +21,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     header,
     footer,
     menus,
+    page,
 
     // Objects
     navItem,
@@ -27,8 +31,12 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     subMenuDocs,
     subMenuResources,
     customUrl,
+    pageBlocks,
 
     // Singletons
     customImage,
+
+    // Sections
+    heroSection,
   ],
 };

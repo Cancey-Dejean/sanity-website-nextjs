@@ -13,13 +13,6 @@ export default defineType({
       title: "Menu Title",
       validation: (rule) => rule.error("Title is required").required(),
     },
-    // {
-    //   name: "menuList",
-    //   type: "array",
-    //   title: "Menu List",
-    //   of: [{ type: "navItem" }],
-    //   validation: (rule) => rule.required(),
-    // },
   ],
   preview: {
     select: {

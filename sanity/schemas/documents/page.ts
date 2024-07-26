@@ -1,6 +1,6 @@
-import { GROUPS } from "@/constants"
-import { IoHomeOutline } from "react-icons/io5"
-import { defineField, defineType } from "sanity"
+import { GROUPS } from "@/constants";
+import { IoHomeOutline } from "react-icons/io5";
+import { defineField, defineType } from "sanity";
 
 export default defineType({
   name: "page",
@@ -42,16 +42,16 @@ export default defineType({
       type: "image",
       group: "seo",
     }),
-    defineField({
-      name: "body",
-      title: "Body",
-      type: "bodyText",
-      group: "pageBuilder",
-    }),
+    // defineField({
+    //   name: "body",
+    //   title: "Body",
+    //   type: "bodyText",
+    //   group: "pageBuilder",
+    // }),
     defineField({
       name: "pageBuilder",
       title: "Page Builder",
-      type: "pageSections",
+      type: "pageBlocks",
       group: "pageBuilder",
     }),
   ],
@@ -63,7 +63,7 @@ export default defineType({
       return {
         subtitle: "Page",
         title,
-      }
+      };
     },
   },
-})
+});
