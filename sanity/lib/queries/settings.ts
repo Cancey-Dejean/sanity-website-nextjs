@@ -13,13 +13,22 @@ const HEADER_QUERY = groq`
     "logoImage": logo.asset->url,
     "logoImageAlt": logo.alt,
     menu [] {
-      label,
-      menuColumns [] {
+      _type,
+      _type == "subMenuBase" => {
         label,
-        callToAction {
+        menuColumns [] {
           label,
-          url,
-          newTab,
+          menuList[] {
+            url,
+            description,
+            label,
+            newTab
+          },
+          callToAction {
+            label,
+            url,
+            newTab,
+          }
         }
       }
     }

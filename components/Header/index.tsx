@@ -1,31 +1,19 @@
-// import { sanityFetch } from "@/sanity/lib/fetch";
-// import HeaderWrapper from "./HeaderWrapper";
-// import { SanityDocument } from "next-sanity";
-// import { ALL_SETTINGS_QUERY } from "@/sanity/lib/queries/settings";
-//
-// const Header = async () => {
-//   const navigation = await sanityFetch<SanityDocument>({
-//     query: ALL_SETTINGS_QUERY,
-//   });
-//
-//   const menuList = navigation.header.menu.menuList;
-//   const logo = navigation.header.logoImage;
-//   const logoAlt = navigation.header.logoImageAlt;
-//   const settings = navigation.settings[0].companyName;
-//
-//   return (
-//     <>
-//       <HeaderWrapper
-//         menuList={menuList}
-//         logoSrc={logo}
-//         logoAlt={logoAlt}
-//         companyName={settings}
-//       />
-//     </>
-//   );
-// };
-//
-// export default Header;
-export default function Header() {
-  return <header>Header</header>;
+import { SanityDocument } from "next-sanity";
+import { sanityFetch } from "@/sanity/lib/fetch";
+import { ALL_SETTINGS_QUERY } from "@/sanity/lib/queries/settings";
+import HeaderContent from "@/components/Header/HeaderContent";
+
+export default async function Header() {
+  const headerData = await sanityFetch<SanityDocument>({
+    query: ALL_SETTINGS_QUERY,
+  });
+
+  const header = headerData.header.logoImage;
+
+  const logoImage = headerData.header.logoImage;
+  const menu = headerData.header.menu;
+
+  console.log(headerData.header.menu.menuColumns);
+
+  return <HeaderContent logoImage={logoImage} menu={menu} />;
 }
