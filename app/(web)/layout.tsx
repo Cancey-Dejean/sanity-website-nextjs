@@ -1,11 +1,21 @@
-import type { Metadata } from "next"
-import "./globals.css"
-import { Inter } from "next/font/google";
-import { VisualEditing } from "next-sanity"
-import { draftMode } from "next/headers"
-import PageWrapper from "@/components/PageWrapper"
+import type { Metadata } from "next";
+import "./globals.css";
+import { Inter, JetBrains_Mono } from "next/font/google";
+import { VisualEditing } from "next-sanity";
+import { draftMode } from "next/headers";
+import PageWrapper from "@/components/PageWrapper";
+import React from "react";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-inter",
+});
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+  variable: "--font-jetBrainsMono",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,22 +25,22 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.className}>
-    <body>
-    {draftMode().isEnabled && (
-      <div>
-        <a className="p-4 bg-blue-300 block" href="/api/disable-draft">
-          Disable preview mode
-        </a>
-      </div>
-    )}
-    <PageWrapper>{children}</PageWrapper>
+    <html lang="en" className={`${inter.variable}`}>
+      <body>
+        {draftMode().isEnabled && (
+          <div>
+            <a className="block bg-blue-300 p-4" href="/api/disable-draft">
+              Disable preview mode
+            </a>
+          </div>
+        )}
+        <PageWrapper>{children}</PageWrapper>
 
-    {draftMode().isEnabled && <VisualEditing/>}
-    </body>
+        {draftMode().isEnabled && <VisualEditing />}
+      </body>
     </html>
-  )
+  );
 }

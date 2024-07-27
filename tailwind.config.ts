@@ -10,6 +10,10 @@ const config = {
   ],
   prefix: "",
   theme: {
+    fontFamily: {
+      body: "var(--font-inter)",
+      jetBrainsMono: "var(--font-jetBrainsMono)",
+    },
     colors: {
       white: "var(--white)",
       black: "var(--black)",
