@@ -28,25 +28,6 @@ export default defineType({
       ],
       validation: (rule) => rule.required().min(1),
     },
-    // {
-    //   name: "menu",
-    //   type: "object",
-    //   title: "Menu",
-    //   fields: [
-    //     {
-    //       name: "content",
-    //       type: "array",
-    //       title: "Content",
-    //       of: [
-    //         { type: "subMenuBase" },
-    //         { type: "subMenuHighlight" },
-    //         { type: "subMenuDocs" },
-    //         { type: "subMenuResources" },
-    //       ],
-    //       validation: (rule) => rule.required().min(1),
-    //     },
-    //   ],
-    // },
   ],
   preview: {
     select: {

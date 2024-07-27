@@ -42,12 +42,6 @@ export default defineType({
       type: "image",
       group: "seo",
     }),
-    // defineField({
-    //   name: "body",
-    //   title: "Body",
-    //   type: "bodyText",
-    //   group: "pageBuilder",
-    // }),
     defineField({
       name: "pageBuilder",
       title: "Page Builder",

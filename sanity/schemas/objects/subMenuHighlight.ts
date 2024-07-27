@@ -14,30 +14,66 @@ export const subMenuHighlight = defineType({
     },
     {
       name: "menuList",
-      title: "Menu Lists",
-      type: "array",
-      of: [
+      title: "Menu List",
+      type: "object",
+      fields: [
         {
-          type: "navItem",
+          name: "label",
+          title: "Label",
+          type: "string",
+        },
+        {
+          name: "items",
+          title: "Items",
+          type: "array",
+          of: [
+            {
+              name: "menuItem",
+              title: "Menu Item",
+              type: "link",
+            },
+          ],
+          validation: (rule) => rule.required().min(1).max(4),
         },
       ],
-      validation: (rule) => rule.required().min(1).max(3),
+    },
+    {
+      name: "highlightList",
+      title: "Highlight List",
+      type: "object",
+      fields: [
+        {
+          name: "label",
+          title: "Label",
+          type: "string",
+        },
+        {
+          name: "items",
+          title: "Items",
+          type: "array",
+          of: [
+            {
+              name: "menuItem",
+              title: "Menu Item",
+              type: "logoTextLink",
+            },
+          ],
+          validation: (rule) => rule.required().min(1).max(12),
+        },
+      ],
     },
   ],
   initialValue: {
-    label: "Link",
-    newTab: false,
-    cta: false,
+    label: "Category",
   },
   preview: {
     select: {
       title: "label",
-      subtitle: "url",
     },
-    prepare({ title, subtitle }) {
+    prepare(selection) {
+      const { title } = selection;
       return {
         title: title || "Label needs to be set",
-        subtitle: subtitle || "No URL present",
         media: IoIosLink,
       };
     },

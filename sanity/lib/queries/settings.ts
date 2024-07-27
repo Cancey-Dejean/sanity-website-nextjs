@@ -14,6 +14,7 @@ const HEADER_QUERY = groq`
     "logoImageAlt": logo.alt,
     menu [] {
       _type,
+
       _type == "subMenuBase" => {
         label,
         menuColumns [] {
@@ -30,6 +31,30 @@ const HEADER_QUERY = groq`
             newTab,
           }
         }
+      },
+
+      _type == "subMenuHighlight" => {
+        label,
+        highlightList {
+          label,
+          items [] {
+            "image": customImage.asset->url,
+            "imageAlt": customImage.alt,
+            url {
+              url,
+              label,
+              newTab
+            }
+          }
+        }
+      },
+
+      _type == "subMenuResources" => {
+        ...
+      },
+
+      _type == "subMenuDocs" => {
+        ...
       }
     }
   }

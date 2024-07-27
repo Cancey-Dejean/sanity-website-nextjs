@@ -24,15 +24,23 @@ export default function HeaderContent({
           <div key={label}>
             {_type === "subMenuBase" && (
               <>
-                <p>{label}</p>
-                <p>{_type}</p>
+                <SubMenuBase
+                  key={label}
+                  label={label}
+                  menuList={menuList}
+                  _type={_type}
+                />
               </>
             )}
 
             {_type === "subMenuHighlight" && (
               <>
-                <p>{label}</p>
-                <p>{_type}</p>
+                <SubMenuHighlight
+                  key={label}
+                  label={label}
+                  menuList={menuList}
+                  _type={_type}
+                />
               </>
             )}
 
@@ -55,3 +63,48 @@ export default function HeaderContent({
     </header>
   );
 }
+
+// Make a component for subMenuBase
+const SubMenuBase = ({ label, _type }: Menu) => {
+  return (
+    <div>
+      <p>{label}</p>
+      <p>
+        This is the <strong>{_type}</strong> component showing
+      </p>
+    </div>
+  );
+};
+
+const SubMenuHighlight = ({ label, _type }: Menu) => {
+  return (
+    <div>
+      <p>{label}</p>
+      <p>
+        This is the <strong>{_type}</strong> component showing
+      </p>
+    </div>
+  );
+};
+
+const SubMenuDoc = ({ label, _type }: Menu) => {
+  return (
+    <div>
+      <p>{label}</p>
+      <p>
+        This is the <strong>{_type}</strong> component showing
+      </p>
+    </div>
+  );
+};
+
+const SubMenuResources = ({ label, _type }: Menu) => {
+  return (
+    <div>
+      <p>{label}</p>
+      <p>
+        This is the <strong>{_type}</strong> component showing
+      </p>
+    </div>
+  );
+};

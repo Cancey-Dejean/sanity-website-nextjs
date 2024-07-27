@@ -14,6 +14,7 @@ import { customUrl } from "@/sanity/schemas/objects/customUrl";
 import { heroSection } from "@/sanity/schemas/sections/hero";
 import page from "@/sanity/schemas/documents/page";
 import { pageBlocks } from "@/sanity/schemas/objects/pageBlocks";
+import { logoTextLink } from "@/sanity/schemas/objects/logoTextLink";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -32,6 +33,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     subMenuResources,
     customUrl,
     pageBlocks,
+    logoTextLink,
 
     // Singletons
     customImage,
