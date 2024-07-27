@@ -40,8 +40,6 @@ export default async function Page({ params }: { params: QueryParams }) {
     params: { slug },
   });
 
-  console.log(page);
-
   const pageBuilder = page.pageBuilder;
 
   if (!page) {
