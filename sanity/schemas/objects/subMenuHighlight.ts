@@ -1,5 +1,6 @@
 import { IoIosLink } from "react-icons/io";
 import { defineField, defineType } from "sanity";
+import { MenuColumn } from "@/types";
 
 export const subMenuHighlight = defineType({
   name: "subMenuHighlight",
@@ -13,29 +14,9 @@ export const subMenuHighlight = defineType({
       type: "string",
     },
     {
-      name: "menuList",
-      title: "Menu List",
-      type: "object",
-      fields: [
-        {
-          name: "label",
-          title: "Label",
-          type: "string",
-        },
-        {
-          name: "items",
-          title: "Items",
-          type: "array",
-          of: [
-            {
-              name: "menuItem",
-              title: "Menu Item",
-              type: "link",
-            },
-          ],
-          validation: (rule) => rule.required().min(1).max(4),
-        },
-      ],
+      name: "menuColumn",
+      title: "Menu Column",
+      type: "navItem",
     },
     {
       name: "highlightList",

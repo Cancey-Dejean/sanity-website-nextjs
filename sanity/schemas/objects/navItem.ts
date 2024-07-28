@@ -33,6 +33,7 @@ export const navItem = defineType({
   ],
   initialValue: {
     label: "Link",
+    callToAction: false,
   },
   preview: {
     select: {

@@ -35,18 +35,21 @@ const HEADER_QUERY = groq`
 
       _type == "subMenuHighlight" => {
         label,
-        highlightList {
+        ...,
+        menuColumn {
           label,
-          items [] {
-            "image": customImage.asset->url,
-            "imageAlt": customImage.alt,
-            url {
-              url,
-              label,
-              newTab
-            }
+          menuList [] {
+            label,
+            description,
+            newTab,
+            url
+          },
+          callToAction {
+            label,
+            newTab,
+            url
           }
-        }
+        }  
       },
 
       _type == "subMenuResources" => {

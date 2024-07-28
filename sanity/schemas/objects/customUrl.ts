@@ -26,7 +26,6 @@ export const customUrl = defineType({
       name: "newTab",
       type: "boolean",
       title: "Open in new tab?",
-      initialValue: false,
     }),
   ],
   initialValue: {
