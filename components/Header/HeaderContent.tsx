@@ -14,7 +14,13 @@ import {
 import { cn } from "@/lib/utils";
 import Container from "@/components/Container";
 import SubMenuBase from "@/components/Header/SubMenuBase";
-import { Menu, MenuColumn, MenuColumns, MenuList } from "@/types";
+import {
+  HighlightItems,
+  Menu,
+  MenuColumn,
+  MenuColumns,
+  MenuList,
+} from "@/types";
 import Link from "next/link";
 import { ArrowRight } from "@/components/ui/svgIcons";
 
@@ -30,7 +36,7 @@ export default function HeaderContent({
   menu: [];
 }) {
   return (
-    <header className={"px-8 py-3"}>
+    <header className={"py-3"}>
       <Container className="flex items-center justify-between gap-5">
         <Image
           src={logoImage || "https://dummyimage.com/114x24.png/dddddd/ffffff"}
@@ -43,37 +49,46 @@ export default function HeaderContent({
           <div className="grow">
             <NavigationMenu>
               <NavigationMenuList>
-                {menu.map(({ label, _type, menuColumns, menuColumn }: Menu) => (
-                  <NavigationMenuItem key={label}>
-                    <NavigationMenuTrigger className="p-3 text-sm leading-none">
-                      {label}
-                    </NavigationMenuTrigger>
+                {menu.map(
+                  ({
+                    label,
+                    _type,
+                    menuColumns,
+                    menuColumn,
+                    highlightList,
+                  }: Menu) => (
+                    <NavigationMenuItem key={label}>
+                      <NavigationMenuTrigger className="p-3 text-sm leading-none">
+                        {label}
+                      </NavigationMenuTrigger>
 
-                    {_type === "subMenuBase" && (
-                      <NavigationMenuContent
-                        className={cn("!w-[500px]", submenuStyles)}
-                      >
-                        <SubMenuBase
-                          key={label}
-                          label={label}
-                          menuColumns={menuColumns}
-                        />
-                      </NavigationMenuContent>
-                    )}
+                      {_type === "subMenuBase" && (
+                        <NavigationMenuContent
+                          className={cn("!w-[500px]", submenuStyles)}
+                        >
+                          <SubMenuBase
+                            key={label}
+                            label={label}
+                            menuColumns={menuColumns}
+                          />
+                        </NavigationMenuContent>
+                      )}
 
-                    {_type === "subMenuHighlight" && (
-                      <NavigationMenuContent
-                        className={cn("!w-[500px]", submenuStyles)}
-                      >
-                        <SubMenuHighlight
-                          key={label}
-                          label={label}
-                          menuColumn={menuColumn}
-                        />
-                      </NavigationMenuContent>
-                    )}
-                  </NavigationMenuItem>
-                ))}
+                      {_type === "subMenuHighlight" && (
+                        <NavigationMenuContent
+                          className={cn("!w-[600px]", submenuStyles)}
+                        >
+                          <SubMenuHighlight
+                            key={label}
+                            label={label}
+                            menuColumn={menuColumn}
+                            highlightList={highlightList}
+                          />
+                        </NavigationMenuContent>
+                      )}
+                    </NavigationMenuItem>
+                  ),
+                )}
               </NavigationMenuList>
             </NavigationMenu>
           </div>
@@ -85,7 +100,7 @@ export default function HeaderContent({
   );
 }
 
-const SubMenuHighlight = ({ menuColumn }: Menu) => {
+const SubMenuHighlight = ({ menuColumn, highlightList }: Menu) => {
   return (
     <div className={"flex gap-16"}>
       <div className="flex grow flex-col">
@@ -109,6 +124,59 @@ const SubMenuHighlight = ({ menuColumn }: Menu) => {
             ),
           )}
         </div>
+
+        {menuColumn?.callToAction?.label !== null && (
+          <div className="mt-auto">
+            <Link
+              href={menuColumn?.callToAction?.url || "#cta"}
+              className="mt-8 flex items-center gap-1 text-sm font-semibold"
+            >
+              <span>{menuColumn?.callToAction?.label}</span>
+              <ArrowRight className="size-5" />
+            </Link>
+          </div>
+        )}
+      </div>
+
+      <div className="flex w-[304px] flex-col">
+        <p className="font-jetBrainsMono mb-5 text-xs font-medium uppercase leading-none tracking-[0.5px] text-gray-600">
+          {highlightList?.label}
+        </p>
+
+        <div className="grid grid-cols-2 gap-3">
+          {highlightList?.items.map(
+            ({ image, imageAlt, link }: HighlightItems) => (
+              <div key={link?.label} className="flex items-center gap-3">
+                <Image
+                  src={
+                    image || "https://dummyimage.com/20x23.png/dddddd/ffffff"
+                  }
+                  alt={imageAlt || "Logo Alt"}
+                  width={20}
+                  height={23}
+                />
+                <Link
+                  href={link?.url || "#"}
+                  className="text-sm font-semibold leading-none"
+                >
+                  {link?.label}
+                </Link>
+              </div>
+            ),
+          )}
+        </div>
+
+        {highlightList?.callToAction?.label !== null && (
+          <div className="mt-auto">
+            <Link
+              href={highlightList?.callToAction?.url || "#cta"}
+              className="mt-8 flex items-center gap-1 text-sm font-semibold"
+            >
+              <span>{highlightList?.callToAction?.label}</span>
+              <ArrowRight className="size-5" />
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

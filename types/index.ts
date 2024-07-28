@@ -9,14 +9,20 @@ export type MenuList = Link & {
 };
 
 export type HighlightItems = {
-  image: string;
-  imageAlt: string;
-  url: Link;
+  image?: string;
+  imageAlt?: string;
+  link?: Link;
 };
 
 export type MenuColumns = {
   label: string;
-  menuList?: MenuList[];
+  menuList?: MenuList[] | null;
+  callToAction: Link | null;
+};
+
+export type HighlightList = {
+  label: string;
+  items: HighlightItems[];
   callToAction: Link | null;
 };
 
@@ -29,8 +35,9 @@ export type Menu = {
     | "subMenuHighlight"
     | "subMenuDocs"
     | "subMenuResources";
-  menuColumns?: MenuColumns[];
-  menuColumn?: MenuColumn;
+  menuColumns?: MenuColumns[] | null;
+  menuColumn?: MenuColumn | null;
+  highlightList?: HighlightList | null;
 };
 
 // export type HeaderContent = {

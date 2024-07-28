@@ -35,7 +35,6 @@ const HEADER_QUERY = groq`
 
       _type == "subMenuHighlight" => {
         label,
-        ...,
         menuColumn {
           label,
           menuList [] {
@@ -49,7 +48,26 @@ const HEADER_QUERY = groq`
             newTab,
             url
           }
-        }  
+        },
+        
+        highlightList {
+          label,
+          items [] {
+            "image": customImage.asset->url,
+            "imageAlt": customImage.alt,
+            link {
+              label,
+              newTab,
+              url
+            }
+          },
+          callToAction {
+            label,
+            newTab,
+            url
+          }
+        }
+         
       },
 
       _type == "subMenuResources" => {

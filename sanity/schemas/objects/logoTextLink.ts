@@ -18,7 +18,6 @@ export const logoTextLink = defineType({
           name: "alt",
           type: "string",
           title: "Alt text",
-          validation: (rule) => rule.error("Alt text is required").required(),
           options: {
             isHighlighted: true,
           },
@@ -26,15 +25,15 @@ export const logoTextLink = defineType({
       ],
     },
     {
-      name: "url",
-      title: "Url",
+      name: "link",
+      title: "Link",
       type: "customUrl",
     },
   ],
   preview: {
     select: {
-      title: "url.label",
-      subtitle: "url.url",
+      title: "link.label",
+      subtitle: "link.url",
     },
     prepare(selection) {
       const { title, subtitle } = selection;

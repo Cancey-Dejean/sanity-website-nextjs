@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import React from "react";
 
 const containerSizes = {
-  base: "max-w-[1600px]",
+  base: "max-w-[1250px]",
 };
 
 export default function Container({
@@ -15,7 +15,7 @@ export default function Container({
   children: React.ReactNode;
 } & React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={cn("mx-auto w-full", containerSizes[size], className)}>
+    <div className={cn("mx-auto w-full px-8", containerSizes[size], className)}>
       {children}
     </div>
   );

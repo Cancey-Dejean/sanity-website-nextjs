@@ -39,7 +39,12 @@ export const subMenuHighlight = defineType({
               type: "logoTextLink",
             },
           ],
-          validation: (rule) => rule.required().min(1).max(12),
+          validation: (rule) => rule.required().min(1).max(14),
+        },
+        {
+          name: "callToAction",
+          title: "Call to action",
+          type: "customUrl",
         },
       ],
     },
