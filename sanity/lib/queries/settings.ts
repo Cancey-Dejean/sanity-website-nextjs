@@ -14,9 +14,16 @@ const HEADER_QUERY = groq`
     "logoImageAlt": logo.alt,
     menu [] {
       _type,
-
-      _type == "subMenuBase" => {
+      
+      _type == "customUrl" => {
+        url,
         label,
+        newTab
+      },
+      
+      _type == "subMenu" => {
+        label,
+        url,
         menuColumns [] {
           label,
           menuList[] {
@@ -29,24 +36,6 @@ const HEADER_QUERY = groq`
             label,
             url,
             newTab,
-          }
-        }
-      },
-
-      _type == "subMenuHighlight" => {
-        label,
-        menuColumn {
-          label,
-          menuList [] {
-            label,
-            description,
-            newTab,
-            url
-          },
-          callToAction {
-            label,
-            newTab,
-            url
           }
         },
         
@@ -66,17 +55,10 @@ const HEADER_QUERY = groq`
             newTab,
             url
           }
-        }
-         
+        },
       },
 
-      _type == "subMenuResources" => {
-        ...
-      },
 
-      _type == "subMenuDocs" => {
-        ...
-      }
     }
   }
 `;

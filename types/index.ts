@@ -30,18 +30,15 @@ export type MenuColumn = MenuColumns;
 
 export type Menu = {
   label?: string | null;
+  url?: string | null;
   _type?:
+    | "customUrl"
+    | "subMenu"
     | "subMenuBase"
     | "subMenuHighlight"
     | "subMenuDocs"
     | "subMenuResources";
   menuColumns?: MenuColumns[] | null;
-  menuColumn?: MenuColumn | null;
+  // menuColumn?: MenuColumn | null;
   highlightList?: HighlightList | null;
 };
-
-// export type HeaderContent = {
-//   logoImage: string;
-//   logoAlt?: string;
-//   menu: [];
-// };

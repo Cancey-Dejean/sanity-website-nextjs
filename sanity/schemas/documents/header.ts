@@ -20,13 +20,8 @@ export default defineType({
       name: "menu",
       type: "array",
       title: "Menu",
-      of: [
-        { type: "subMenuBase" },
-        { type: "subMenuHighlight" },
-        { type: "subMenuDocs" },
-        { type: "subMenuResources" },
-      ],
-      validation: (rule) => rule.required().min(1),
+      of: [{ type: "customUrl" }, { type: "subMenu" }],
+      validation: (rule) => rule.required().min(1).max(6),
     },
   ],
   preview: {

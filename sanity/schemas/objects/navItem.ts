@@ -7,21 +7,21 @@ export const navItem = defineType({
   type: "object",
   icon: IoIosLink,
   fields: [
-    defineField({
+    {
       name: "label",
       title: "Label",
       type: "string",
-    }),
+    },
     {
       name: "menuList",
       title: "Menu",
       type: "array",
       of: [
-        defineField({
+        {
           name: "menuItem",
           title: "Menu Item",
           type: "link",
-        }),
+        },
       ],
       validation: (rule) => rule.required().min(1).max(4),
     },
@@ -33,7 +33,6 @@ export const navItem = defineType({
   ],
   initialValue: {
     label: "Link",
-    callToAction: false,
   },
   preview: {
     select: {
