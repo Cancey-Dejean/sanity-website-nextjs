@@ -8,12 +8,17 @@ export default async function Header() {
     query: ALL_SETTINGS_QUERY,
   });
 
-  const header = headerData.header.logoImage;
-
   const logoImage = headerData.header.logoImage;
   const menu = headerData.header.menu;
+  const secondaryMenu = headerData.header.secondaryMenu;
 
-  console.log(headerData.header.menu.menuColumns);
+  console.log(secondaryMenu);
 
-  return <HeaderContent logoImage={logoImage} menu={menu} />;
+  return (
+    <HeaderContent
+      logoImage={logoImage}
+      menu={menu}
+      secondaryMenu={secondaryMenu}
+    />
+  );
 }

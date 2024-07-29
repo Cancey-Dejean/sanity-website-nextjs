@@ -1,4 +1,4 @@
-import { defineField, defineType } from "sanity";
+import { defineType } from "sanity";
 
 export default defineType({
   name: "header",
@@ -19,9 +19,16 @@ export default defineType({
     {
       name: "menu",
       type: "array",
-      title: "Menu",
+      title: "Primary Menu",
       of: [{ type: "customUrl" }, { type: "subMenu" }],
       validation: (rule) => rule.required().min(1).max(6),
+    },
+    {
+      name: "secondaryMenu",
+      type: "array",
+      title: "Secondary Menu",
+      of: [{ type: "button" }],
+      validation: (Rule) => Rule.max(4),
     },
   ],
   preview: {

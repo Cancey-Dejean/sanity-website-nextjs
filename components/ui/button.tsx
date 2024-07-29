@@ -5,18 +5,28 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex min-w-[243px] font-heading items-center justify-center whitespace-nowrap rounded-[12px] sm:text-2xl tracking-[3px] leading-none font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 shadow-button border-[8px] border-gray-900 uppercase transition-all duration-300 ease-in-out hover:shadow-button-hover hover:translate-x-1 hover:-translate-y-1",
+  "inline-flex leading-none items-center justify-center whitespace-nowrap rounded-sm text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-transparent gap-1",
   {
     variants: {
       variant: {
-        none: "hidden",
-        default: "bg-magenta text-white hover:bg-primary/90 hover:bg-pink-400",
-        mint: "bg-mint hover:bg-pink-300 hover:text-white",
-        purple:
-          "bg-purple-200 text-white hover:bg-red hover:text-white shadow-purple border-purple-300 hover:shadow-red hover:shadow-purple-hover ",
+        default:
+          "bg-black text-white hover:bg-gray-950 hover:text-cyan-200 border-black",
+        secondary: "bg-red-400 border-red-400",
+        "secondary-outline":
+          "bg-transparent border-red-300 hover:bg-red-50 hover:text-red-950",
+        destructive:
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        outline:
+          " border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        ghost: "border-none hover:bg-accent hover:text-accent-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
-        default: "p-4 sm:py-5 sm:px-10",
+        default: "px-6 py-3",
+        sm: "h-10 p-3",
+        md: "medium",
+        lg: "large",
+        icon: "h-10 w-10",
       },
     },
     defaultVariants: {

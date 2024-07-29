@@ -12,6 +12,7 @@ const HEADER_QUERY = groq`
   "header": *[_type == "header"][0] {
     "logoImage": logo.asset->url,
     "logoImageAlt": logo.alt,
+    
     menu [] {
       _type,
       
@@ -57,9 +58,19 @@ const HEADER_QUERY = groq`
           }
         },
       },
-
-
+    },
+    
+    secondaryMenu [] {
+      size,
+      variant,
+      cta {
+        label,
+        newTab,
+        url
+      }
     }
+ 
+    
   }
 `;
 

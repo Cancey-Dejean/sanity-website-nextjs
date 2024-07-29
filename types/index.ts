@@ -1,3 +1,5 @@
+import { ButtonProps } from "@/components/ui/button";
+
 export type Link = {
   url: string;
   label: string | null;
@@ -17,28 +19,26 @@ export type HighlightItems = {
 export type MenuColumns = {
   label: string;
   menuList?: MenuList[] | null;
-  callToAction: Link | null;
+  callToAction?: Link | null;
 };
 
 export type HighlightList = {
   label: string;
   items: HighlightItems[];
-  callToAction: Link | null;
+  callToAction?: Link | null;
 };
 
-export type MenuColumn = MenuColumns;
+export type SecondaryMenu = {
+  size?: ButtonProps["size"];
+  variant?: ButtonProps["variant"];
+  cta?: Link | null;
+};
 
 export type Menu = {
   label?: string | null;
   url?: string | null;
-  _type?:
-    | "customUrl"
-    | "subMenu"
-    | "subMenuBase"
-    | "subMenuHighlight"
-    | "subMenuDocs"
-    | "subMenuResources";
+  _type?: "customUrl" | "subMenu";
   menuColumns?: MenuColumns[] | null;
-  // menuColumn?: MenuColumn | null;
   highlightList?: HighlightList | null;
+  secondaryMenu?: SecondaryMenu | null;
 };

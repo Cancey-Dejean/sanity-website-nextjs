@@ -14,12 +14,11 @@ import {
 
 import { cn } from "@/lib/utils";
 import Container from "@/components/Container";
-import SubMenuBase from "@/components/Header/SubMenuBase";
-import { Menu } from "@/types";
+import { Menu, SecondaryMenu } from "@/types";
 import Link from "next/link";
-import { ArrowRight } from "@/components/ui/svgIcons";
-import SubMenuHighlight from "@/components/Header/SubMenuHighlight";
 import SubMenu from "@/components/Header/SubMenu";
+import { Button } from "@/components/ui/button";
+import { HamburgerMenu } from "@/components/ui/svgIcons";
 
 const submenuStyles = "p-6";
 
@@ -27,27 +26,37 @@ export default function HeaderContent({
   logoImage,
   logoAlt,
   menu,
+  secondaryMenu,
 }: {
   logoImage: string;
   logoAlt?: string;
   menu: [];
+  secondaryMenu: [];
 }) {
   return (
-    <header className={"py-3"}>
+    <header className="bg-white py-3">
       <Container className="flex items-center justify-between gap-5">
         <Image
-          src={logoImage || "https://dummyimage.com/114x24.png/dddddd/ffffff"}
+          src={logoImage || "https://dummyimage.com/115x24.png/dddddd/ffffff"}
           width={114}
           height={24}
           alt={logoAlt || "Logo Alt"}
         />
 
+        {/* Desktop Navigation */}
         {menu.length > 0 && (
-          <div className="grow">
+          <div className="hidden grow xl:flex">
             <NavigationMenu>
               <NavigationMenuList>
                 {menu.map(
-                  ({ label, _type, url, menuColumns, highlightList }: Menu) => (
+                  ({
+                    label,
+                    _type,
+                    url,
+                    menuColumns,
+                    highlightList,
+                    secondaryMenu,
+                  }: Menu) => (
                     <NavigationMenuItem key={label}>
                       {_type !== "customUrl" ? (
                         <NavigationMenuTrigger>{label}</NavigationMenuTrigger>
@@ -73,30 +82,6 @@ export default function HeaderContent({
                           />
                         </NavigationMenuContent>
                       )}
-
-                      {/*{_type === "subMenuBase" && (*/}
-                      {/*  <NavigationMenuContent*/}
-                      {/*    className={cn("!w-[500px]", submenuStyles)}*/}
-                      {/*  >*/}
-                      {/*    <SubMenuBase*/}
-                      {/*      key={label}*/}
-                      {/*      label={label}*/}
-                      {/*      menuColumns={menuColumns}*/}
-                      {/*    />*/}
-                      {/*  </NavigationMenuContent>*/}
-                      {/*)}*/}
-
-                      {/*{_type === "subMenuHighlight" && (*/}
-                      {/*  <NavigationMenuContent*/}
-                      {/*    className={cn("!w-[600px]", submenuStyles)}*/}
-                      {/*  >*/}
-                      {/*    <SubMenuHighlight*/}
-                      {/*      key={label}*/}
-                      {/*      label={label}*/}
-                      {/*      highlightList={highlightList}*/}
-                      {/*    />*/}
-                      {/*  </NavigationMenuContent>*/}
-                      {/*)}*/}
                     </NavigationMenuItem>
                   ),
                 )}
@@ -105,30 +90,44 @@ export default function HeaderContent({
           </div>
         )}
 
-        <div>Secondary</div>
+        <div className="flex gap-2">
+          {secondaryMenu?.map(({ variant, size, cta }: SecondaryMenu) => (
+            <Button
+              size={size}
+              variant={variant}
+              asChild
+              className="hidden lg:flex"
+            >
+              <Link href={cta?.url || "#"}>{cta?.label}</Link>
+            </Button>
+          ))}
+
+          {/* Hamburger Menu */}
+          {menu.length > 0 && (
+            <div className="flex items-center gap-2">
+              <div className="flex lg:hidden">
+                {secondaryMenu
+                  ?.slice(2)
+                  .map(({ variant, size, cta }: SecondaryMenu) => (
+                    <Button size={size} variant={variant} asChild>
+                      <Link href={cta?.url || "#"}>{cta?.label}</Link>
+                    </Button>
+                  ))}
+              </div>
+
+              <button
+                type="button"
+                className="px-0"
+                onClick={() => alert("Mobile Menu")}
+              >
+                <HamburgerMenu className="size-7" />
+              </button>
+            </div>
+          )}
+
+          {/* Mobile Navigation */}
+        </div>
       </Container>
     </header>
   );
 }
-
-// const SubMenu = ({ label, _type }: Menu) => {
-//   return (
-//     <div>
-//       <p>{label}</p>
-//       <p>
-//         This is the <strong>{_type}</strong> component showing
-//       </p>
-//     </div>
-//   );
-// };
-
-const SubMenuResources = ({ label, _type }: Menu) => {
-  return (
-    <div>
-      <p>{label}</p>
-      <p>
-        This is the <strong>{_type}</strong> component showing
-      </p>
-    </div>
-  );
-};
