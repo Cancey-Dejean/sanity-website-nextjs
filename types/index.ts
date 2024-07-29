@@ -1,37 +1,43 @@
 import { ButtonProps } from "@/components/ui/button";
 
-export type Link = {
+export type LinkItem = {
   url: string;
-  label: string | null;
+  label: string | null | undefined;
   newTab?: boolean;
 };
 
-export type MenuList = Link & {
+// export type Link = {
+//   url: string;
+//   label: string | null;
+//   newTab?: boolean;
+// };
+
+export type MenuList = LinkItem & {
   description?: string;
 };
 
 export type HighlightItems = {
   image?: string;
   imageAlt?: string;
-  link?: Link;
+  link?: LinkItem;
 };
 
 export type MenuColumns = {
   label: string;
   menuList?: MenuList[] | null;
-  callToAction?: Link | null;
+  callToAction?: LinkItem | null;
 };
 
 export type HighlightList = {
-  label: string;
-  items: HighlightItems[];
-  callToAction?: Link | null;
+  label: string | undefined;
+  items: HighlightItems[] | undefined;
+  callToAction?: LinkItem | null;
 };
 
 export type SecondaryMenu = {
   size?: ButtonProps["size"];
   variant?: ButtonProps["variant"];
-  cta?: Link | null;
+  cta?: LinkItem | null;
 };
 
 export type Menu = {
