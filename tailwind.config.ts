@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import plugin from "tailwindcss/plugin";
 
 const config = {
   darkMode: ["class"],
@@ -202,19 +201,7 @@ const config = {
       },
     },
   },
-  plugins: [
-    require("tailwindcss-animate"),
-    plugin(function ({ addVariant, addUtilities }) {
-      addVariant("popover-open", "&:popover-open");
-      addVariant("starting", "@starting-style");
-
-      addUtilities({
-        ".transition-discrete": {
-          transitionBehavior: "allow-discrete",
-        },
-      });
-    }),
-  ],
+  plugins: [require("tailwindcss-animate")],
 } satisfies Config;
 
 export default config;

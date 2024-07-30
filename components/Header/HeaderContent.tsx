@@ -36,27 +36,30 @@ export default function HeaderContent({
   menu: Menu[];
   secondaryMenu: [];
 }) {
-  const [menuOpen, setMenuOpen] = useState(false);
-  // handle body overflow when menu is open
-  useBodyOverflow(menuOpen);
+  // const [menuOpen, setMenuOpen] = useState(false);
 
-  // Close mobile menu on window resize
-  useCloseMobileMenuOnResize(() => setMenuOpen(false));
-
-  // Handle mobile menu
-  function handleMobileMenu() {
-    setMenuOpen((prev) => !prev);
-  }
+  // // handle body overflow when menu is open
+  // useBodyOverflow(menuOpen);
+  //
+  // // Close mobile menu on window resize
+  // useCloseMobileMenuOnResize(() => setMenuOpen(false));
+  //
+  // // Handle mobile menu
+  // function handleMobileMenu() {
+  //   setMenuOpen((prev) => !prev);
+  // }
 
   return (
     <header className="bg-white py-3">
       <Container className="z-10 flex items-center justify-between gap-5">
-        <Image
-          src={logoImage || "https://dummyimage.com/115x24.png/dddddd/ffffff"}
-          width={114}
-          height={24}
-          alt={logoAlt || "Logo Alt"}
-        />
+        <Link href="/">
+          <Image
+            src={logoImage || "https://dummyimage.com/115x24.png/dddddd/ffffff"}
+            width={114}
+            height={24}
+            alt={logoAlt || "Logo Alt"}
+          />
+        </Link>
 
         {/* Desktop Navigation */}
         {menu.length > 0 && (
@@ -112,40 +115,45 @@ export default function HeaderContent({
               </Button>
             ))}
 
-          {/* Hamburger Menu */}
           <div className="flex items-center gap-2">
             {secondaryMenu.length > 0 &&
               secondaryMenu
                 ?.slice(2)
                 .map(({ variant, size, cta }: SecondaryMenu) => (
                   <div className="flex xl:hidden" key={cta?.label}>
-                    <Button size={size} variant={variant} asChild>
+                    <Button
+                      size={size}
+                      variant={variant}
+                      asChild
+                      // @ts-ignore
+                      popovertarget="mobileMenu"
+                      onClick={handleMobileMenu}
+                    >
                       <Link href={cta?.url || "#"}>{cta?.label}</Link>
                     </Button>
                   </div>
                 ))}
 
-            <button
-              type="button"
-              className="flex px-0 xl:hidden"
-              // @ts-ignore
-              popovertarget="mobileMenu"
-              onClick={handleMobileMenu}
-            >
-              <HamburgerMenu className="size-7" />
-            </button>
+            {/* Hamburger Menu */}
+            {/* Mobile Navigation */}
+            <MobileMenu
+              logoImage={logoImage}
+              logoAlt={logoAlt}
+              menu={menu}
+              secondaryMenu={secondaryMenu}
+            />
+            {/*<button*/}
+            {/*  type="button"*/}
+            {/*  className="flex px-0 xl:hidden"*/}
+            {/*  // @ts-ignore*/}
+            {/*  popovertarget="mobileMenu"*/}
+            {/*  onClick={handleMobileMenu}*/}
+            {/*>*/}
+            {/*  <HamburgerMenu className="size-7" />*/}
+            {/*</button>*/}
           </div>
         </div>
       </Container>
-
-      {/* Mobile Navigation */}
-      <MobileMenu
-        logoImage={logoImage}
-        logoAlt={logoAlt}
-        menu={menu}
-        secondaryMenu={secondaryMenu}
-        handleMobileMenu={handleMobileMenu}
-      />
     </header>
   );
 }

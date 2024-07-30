@@ -85,25 +85,28 @@ export function MenuItemDesc({ description }: { description?: string }) {
   }
 
   return (
-    <p className="text-xs font-medium leading-none text-gray-600 transition-colors duration-300 ease-in-out after:absolute after:inset-0 group-hover:text-gray-900">
+    <p className="text-xs font-medium leading-none text-gray-600 transition-colors duration-300 ease-in-out group-hover:text-gray-900">
       {description}
     </p>
   );
 }
 
-export function MenuColumnItem({ url, newTab, label }: LinkItem) {
+export function MenuColumnItem({ url, newTab, label, children }: LinkItem) {
   if (!label) {
     return null;
   }
 
   return (
-    <Link
-      className="text-sm font-semibold leading-none"
-      href={url || "#"}
-      target={newTab ? "_blank" : "_self"}
-    >
-      {label}
-    </Link>
+    <div className="group relative">
+      <Link
+        href={url || "#"}
+        className="text-sm font-semibold leading-none after:absolute after:inset-0"
+        target={newTab ? "_blank" : "_self"}
+      >
+        {label}
+      </Link>
+      {children}
+    </div>
   );
 }
 

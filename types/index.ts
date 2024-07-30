@@ -1,6 +1,7 @@
 import { ButtonProps } from "@/components/ui/button";
 
 export type LinkItem = {
+  children?: React.ReactNode;
   url: string;
   label: string | null | undefined;
   newTab?: boolean;
@@ -43,6 +44,7 @@ export type SecondaryMenu = {
 export type Menu = {
   label?: string | null;
   url?: string | null;
+  newTab?: boolean;
   _type?: "customUrl" | "subMenu";
   menuColumns?: MenuColumns[] | null;
   highlightList?: HighlightList | null;
