@@ -7,11 +7,7 @@ export type LinkItem = {
   newTab?: boolean;
 };
 
-// export type Link = {
-//   url: string;
-//   label: string | null;
-//   newTab?: boolean;
-// };
+export type HandleMobileMenu = () => void;
 
 export type MenuList = LinkItem & {
   description?: string;

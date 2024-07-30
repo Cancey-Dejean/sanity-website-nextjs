@@ -44,13 +44,15 @@ export default function HeaderContent({
   // // Close mobile menu on window resize
   // useCloseMobileMenuOnResize(() => setMenuOpen(false));
   //
-  // // Handle mobile menu
-  // function handleMobileMenu() {
-  //   setMenuOpen((prev) => !prev);
-  // }
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Handle mobile menu
+  function handleMobileMenu() {
+    setIsOpen((prev) => !prev);
+  }
 
   return (
-    <header className="bg-white py-3">
+    <header className="sticky top-0 z-[9] bg-white py-3">
       <Container className="z-10 flex items-center justify-between gap-5">
         <Link href="/">
           <Image
@@ -90,6 +92,7 @@ export default function HeaderContent({
                             label={label}
                             menuColumns={menuColumns}
                             highlightList={highlightList}
+                            handleMobileMenu={handleMobileMenu}
                           />
                         </NavigationMenuContent>
                       )}
@@ -121,14 +124,7 @@ export default function HeaderContent({
                 ?.slice(2)
                 .map(({ variant, size, cta }: SecondaryMenu) => (
                   <div className="flex xl:hidden" key={cta?.label}>
-                    <Button
-                      size={size}
-                      variant={variant}
-                      asChild
-                      // @ts-ignore
-                      popovertarget="mobileMenu"
-                      onClick={handleMobileMenu}
-                    >
+                    <Button size={size} variant={variant} asChild>
                       <Link href={cta?.url || "#"}>{cta?.label}</Link>
                     </Button>
                   </div>
@@ -137,6 +133,9 @@ export default function HeaderContent({
             {/* Hamburger Menu */}
             {/* Mobile Navigation */}
             <MobileMenu
+              handleMobileMenu={handleMobileMenu}
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
               logoImage={logoImage}
               logoAlt={logoAlt}
               menu={menu}
