@@ -42,6 +42,8 @@ export default async function Page({ params }: { params: QueryParams }) {
 
   const pageBuilder = page.pageBuilder;
 
+  console.log(pageBuilder);
+
   if (!page) {
     return notFound();
   }

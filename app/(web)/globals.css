@@ -8,6 +8,12 @@
         --font-jetBrainsMono: "JetBrains Mono", monospace;
         --font-sourceSerif4: "Source Serif 4", serif;
 
+
+        --font-size-display-lg: clamp(3.5rem, 2.468rem + 5.16vw, 6.5rem); /* 56px - 104px */
+        --font-size-display-md: clamp(2.25rem, 1.476rem + 3.87vw, 4.5rem); /* 36px - 72px */
+        --font-size-display-sm: clamp(3.125rem, 2.91rem + 1.08vw, 3.75rem); /* 50px - 60px */
+        --font-size-heading-md: 28px;
+
         --black: #0d0e12;
         --white: #fff;
         --cyan-50: #e7fefe;
@@ -190,5 +196,22 @@
 
     a {
         @apply inline-block;
+    }
+}
+
+@layer components {
+    .display-lg {
+        font-size: var(--font-size-display-lg);
+        line-height: 1.1;
+        letter-spacing: -.025em;
+    }
+    .display-md {
+        font-size: var(--font-size-display-md);
+    }
+    .display-sm {
+        font-size: var(--font-size-display-sm);
+    }
+    .heading-md {
+        font-size: var(--font-size-heading-md);
     }
 }

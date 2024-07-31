@@ -6,12 +6,29 @@ export const heroSection = defineType({
   type: "object",
   title: "Hero",
   fields: [
-    defineField({
+    {
       name: "heading",
-      type: "string",
+      type: "array",
       title: "Heading",
-      validation: (rule) => rule.required(),
-    }),
+      description:
+        "Italic will highlight the text and bold will bold the text.",
+      validation: (Rule) => Rule.required(),
+      of: [
+        {
+          type: "block",
+          title: "Block",
+          styles: [{ title: "Heading 1", value: "h1" }], // Only allow bold and italic
+          lists: [], // Disallow lists
+          marks: {
+            decorators: [
+              { title: "Bold", value: "strong" },
+              { title: "Italic", value: "em" },
+            ],
+            annotations: [],
+          },
+        },
+      ],
+    },
     // defineField({
     //   name: "button",
     //   title: "Button",
@@ -23,15 +40,13 @@ export const heroSection = defineType({
   },
   preview: {
     select: {
-      title: "heading",
-      media: "globals.previewImage",
+      title: "Hero",
     },
     prepare(selection) {
-      const { title, media } = selection;
+      const { title } = selection;
       return {
-        title: title || "Section Title",
-        subtitle: "Hero",
-        media: media || FaRegImage,
+        title: "Hero",
+        media: FaRegImage,
       };
     },
   },

@@ -12,8 +12,6 @@ export default async function Header() {
   const menu = headerData.header.menu;
   const secondaryMenu = headerData.header.secondaryMenu;
 
-  console.log(secondaryMenu);
-
   return (
     <HeaderContent
       logoImage={logoImage}

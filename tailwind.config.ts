@@ -141,6 +141,12 @@ const config = {
       },
     },
     extend: {
+      fontSize: {
+        "display-lg": "var(--size-display-lg)", // 56px - 104px
+        "display-md": "var(--size-display-md)", // 36px - 72px
+        "display-sm": "var(--size-display-sm)", // 50px - 60px
+        "heading-md": "var(--size-heading-md)", // 28px - 28px
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -198,6 +204,10 @@ const config = {
           from: { transform: "scaleX(0)" },
           to: { transform: "none" },
         },
+        "hero-bold": {
+          from: { fontWeight: "400" },
+          to: { fontWeight: "700" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -206,6 +216,8 @@ const config = {
           "black-to-white var(--step-duration) ease-in var(--step-3-delay) backwards",
         "hero-text-slide":
           "hero-text-slide var(--step-duration) ease-in var(--step-3-delay) backwards",
+        "hero-bold":
+          "hero-bold var(--step-duration) ease-in var(--step-3-delay) backwards",
       },
       screens: {
         sm: "640px",
