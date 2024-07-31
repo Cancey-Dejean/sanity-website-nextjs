@@ -48,13 +48,13 @@ const HEADER_QUERY = groq`
             link {
               label,
               newTab,
-              url
+              url,
             }
           },
           callToAction {
             label,
             newTab,
-            url
+            url,
           }
         },
       },
@@ -66,7 +66,7 @@ const HEADER_QUERY = groq`
       cta {
         label,
         newTab,
-        url
+        url,
       }
     }
  
@@ -86,9 +86,9 @@ const FOOTER_QUERY = groq`
     titleLineTwo,
     button {
       variant,
+      url,
       label,
       newTab,
-      url
     },
     text
   }

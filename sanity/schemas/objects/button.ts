@@ -42,6 +42,10 @@ export const button = defineType({
         ],
       },
     }),
+    defineField({
+      name: "hide",
+      type: "hideItem",
+    }),
   ],
   options: {
     collapsible: true,

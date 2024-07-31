@@ -29,14 +29,35 @@ export const heroSection = defineType({
         },
       ],
     },
-    // defineField({
-    //   name: "button",
-    //   title: "Button",
-    //   type: "button",
-    // }),
+    {
+      name: "subHeading",
+      type: "text",
+      title: "Subheading",
+    },
+    {
+      name: "buttons",
+      title: "Buttons",
+      type: "array",
+      of: [
+        {
+          type: "button",
+        },
+      ],
+      validation: (rule) => rule.max(2),
+    },
+    {
+      name: "copyPasteText",
+      type: "string",
+      title: "Copy Paste Text",
+    },
+    {
+      name: "hide",
+      type: "hideItem",
+    },
   ],
   initialValue: {
-    heading: "Title",
+    subHeading: "Change to desired subheading",
+    copyPasteText: "Change to desired text",
   },
   preview: {
     select: {

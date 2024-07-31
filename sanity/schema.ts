@@ -15,8 +15,8 @@ import { subMenu } from "@/sanity/schemas/objects/subMenu";
 import { heroSection } from "@/sanity/schemas/sections/hero";
 
 import { customImage } from "@/sanity/schemas/singletons/customImage";
-import { hideSection } from "@/sanity/schemas/singletons/hideSection";
 import { button } from "@/sanity/schemas/objects/button";
+import { hideItem } from "@/sanity/schemas/singletons/hideItem";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -37,7 +37,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
 
     // Singletons
     customImage,
-    hideSection,
+    hideItem,
 
     // Sections
     heroSection,
