@@ -6,6 +6,8 @@
     :root {
         --font-inter: "Inter", sans-serif;
         --font-jetBrainsMono: "JetBrains Mono", monospace;
+        --font-sourceSerif4: "Source Serif 4", serif;
+
         --black: #0d0e12;
         --white: #fff;
         --cyan-50: #e7fefe;
@@ -107,8 +109,12 @@
         --green-800: #215233;
         --green-900: #183122;
         --green-950: #14211a;
+        --salmon-500: #f36458;
 
-
+        --step-duration: 300ms;
+        --step-1-delay: 0ms;
+        --step-2-delay: calc(var(--step-1-delay) + var(--step-duration));
+        --step-3-delay: calc(var(--step-2-delay) + var(--step-duration));
 
         --background: 0 0% 100%;
         --foreground: 0 0% 3.9%;
@@ -175,7 +181,11 @@
     }
 
     body {
-        @apply  font-body;
+        @apply  font-inter;
+    }
+
+    p {
+        @apply font-sourceSerif4;
     }
 
     a {

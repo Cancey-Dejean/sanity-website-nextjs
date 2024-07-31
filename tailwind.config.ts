@@ -11,7 +11,8 @@ const config = {
   prefix: "",
   theme: {
     fontFamily: {
-      body: "var(--font-inter)",
+      sourceSerif4: "var(--font-sourceSerif4)",
+      inter: "var(--font-inter)",
       jetBrainsMono: "var(--font-jetBrainsMono)",
     },
     colors: {
@@ -135,6 +136,9 @@ const config = {
         900: "var(--green-900)",
         950: "var(--green-950)",
       },
+      salmon: {
+        DEFAULT: "var(--salmon-500)",
+      },
     },
     extend: {
       colors: {
@@ -186,10 +190,22 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "black-to-white": {
+          from: { color: "var(--black)" },
+          to: { color: "var(--black)" },
+        },
+        "hero-text-slide": {
+          from: { transform: "scaleX(0)" },
+          to: { transform: "none" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "black-to-white":
+          "black-to-white var(--step-duration) ease-in var(--step-3-delay) backwards",
+        "hero-text-slide":
+          "hero-text-slide var(--step-duration) ease-in var(--step-3-delay) backwards",
       },
       screens: {
         sm: "640px",

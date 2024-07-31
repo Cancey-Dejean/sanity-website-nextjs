@@ -6,7 +6,6 @@ const PageWrapper = ({ children }: { children: React.ReactNode }) => {
     <div className="grid min-h-[100dvh] grid-rows-[auto_1fr_auto]">
       <Header />
       <main role="main">{children}</main>
-
       <Footer />
     </div>
   );

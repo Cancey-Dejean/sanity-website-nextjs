@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Source_Serif_4 } from "next/font/google";
 import { VisualEditing } from "next-sanity";
 import { draftMode } from "next/headers";
 import PageWrapper from "@/components/PageWrapper";
@@ -15,6 +15,12 @@ const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
   variable: "--font-jetBrainsMono",
+});
+
+const sourceSerif4 = Source_Serif_4({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-sourceSerif4",
 });
 
 export const metadata: Metadata = {

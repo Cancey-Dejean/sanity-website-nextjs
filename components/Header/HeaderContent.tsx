@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 import Image from "next/image";
 
@@ -12,18 +13,13 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
-import { cn } from "@/lib/utils";
 import Container from "@/components/Container";
 import { Menu, SecondaryMenu } from "@/types";
 import Link from "next/link";
 import SubMenu from "@/components/Header/SubMenu";
 import { Button } from "@/components/ui/button";
-import { HamburgerMenu } from "@/components/ui/svgIcons";
 import MobileMenu from "@/components/Header/MobileMenu";
-import useBodyOverflow from "@/hooks/useBodyOverflow";
 import useCloseMobileMenuOnResize from "@/hooks/useCloseMobileMenuOnResize";
-
-const submenuStyles = "p-6";
 
 export default function HeaderContent({
   logoImage,
@@ -36,19 +32,14 @@ export default function HeaderContent({
   menu: Menu[];
   secondaryMenu: [];
 }) {
-  // const [menuOpen, setMenuOpen] = useState(false);
-
-  // // handle body overflow when menu is open
-  // useBodyOverflow(menuOpen);
-  //
-  // // Close mobile menu on window resize
-  // useCloseMobileMenuOnResize(() => setMenuOpen(false));
-  //
   const [isOpen, setIsOpen] = useState(false);
+
+  // Close mobile menu on window resize
+  useCloseMobileMenuOnResize(() => setIsOpen(false));
 
   // Handle mobile menu
   function handleMobileMenu() {
-    setIsOpen((prev) => !prev);
+    setIsOpen(!isOpen);
   }
 
   return (
@@ -84,15 +75,12 @@ export default function HeaderContent({
                       )}
 
                       {_type === "subMenu" && (
-                        <NavigationMenuContent
-                          className={cn("", submenuStyles)}
-                        >
+                        <NavigationMenuContent className="p-6">
                           <SubMenu
                             key={label}
                             label={label}
                             menuColumns={menuColumns}
                             highlightList={highlightList}
-                            handleMobileMenu={handleMobileMenu}
                           />
                         </NavigationMenuContent>
                       )}
@@ -114,24 +102,36 @@ export default function HeaderContent({
                 className="hidden xl:flex"
                 key={cta?.label}
               >
-                <Link href={cta?.url || "#"}>{cta?.label}</Link>
+                <Link
+                  href={cta?.url || "#"}
+                  target={cta?.newTab ? "_blank" : "_self"}
+                  rel={cta?.newTab ? "noopener noreferrer" : undefined}
+                >
+                  {cta?.label}
+                </Link>
               </Button>
             ))}
 
           <div className="flex items-center gap-2">
+            {/* Header CTA for Mobile */}
             {secondaryMenu.length > 0 &&
               secondaryMenu
                 ?.slice(2)
                 .map(({ variant, size, cta }: SecondaryMenu) => (
                   <div className="flex xl:hidden" key={cta?.label}>
                     <Button size={size} variant={variant} asChild>
-                      <Link href={cta?.url || "#"}>{cta?.label}</Link>
+                      <Link
+                        href={cta?.url || "#"}
+                        target={cta?.newTab ? "_blank" : "_self"}
+                        rel={cta?.newTab ? "noopener noreferrer" : undefined}
+                      >
+                        {cta?.label}
+                      </Link>
                     </Button>
                   </div>
                 ))}
 
-            {/* Hamburger Menu */}
-            {/* Mobile Navigation */}
+            {/* Mobile Menu */}
             <MobileMenu
               handleMobileMenu={handleMobileMenu}
               isOpen={isOpen}
@@ -141,15 +141,6 @@ export default function HeaderContent({
               menu={menu}
               secondaryMenu={secondaryMenu}
             />
-            {/*<button*/}
-            {/*  type="button"*/}
-            {/*  className="flex px-0 xl:hidden"*/}
-            {/*  // @ts-ignore*/}
-            {/*  popovertarget="mobileMenu"*/}
-            {/*  onClick={handleMobileMenu}*/}
-            {/*>*/}
-            {/*  <HamburgerMenu className="size-7" />*/}
-            {/*</button>*/}
           </div>
         </div>
       </Container>

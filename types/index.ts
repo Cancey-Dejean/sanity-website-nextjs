@@ -45,4 +45,5 @@ export type Menu = {
   menuColumns?: MenuColumns[] | null;
   highlightList?: HighlightList | null;
   secondaryMenu?: SecondaryMenu | null;
+  handleMobileMenu?: HandleMobileMenu;
 };

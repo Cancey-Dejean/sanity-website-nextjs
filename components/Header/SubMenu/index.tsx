@@ -8,7 +8,7 @@ import {
 } from "@/types";
 import Link from "next/link";
 import { ArrowRight } from "@/components/ui/svgIcons";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 export default function SubMenu({ menuColumns, highlightList }: Menu) {
@@ -50,7 +50,7 @@ export default function SubMenu({ menuColumns, highlightList }: Menu) {
   );
 }
 
-export function CtaLink({ url, newTab, label }: LinkItem) {
+function CtaLink({ url, newTab, label }: LinkItem) {
   if (!label) {
     return null;
   }
@@ -60,6 +60,7 @@ export function CtaLink({ url, newTab, label }: LinkItem) {
       href={url || "#cta"}
       className="mt-8 flex items-center gap-1 text-sm font-semibold"
       target={newTab ? "_blank" : "_self"}
+      rel={newTab ? "noopener noreferrer" : undefined}
     >
       <span>{label}</span>
       <ArrowRight className="size-5" />
@@ -67,7 +68,7 @@ export function CtaLink({ url, newTab, label }: LinkItem) {
   );
 }
 
-export function ColumnLabel({ label }: { label?: string }) {
+function ColumnLabel({ label }: { label?: string }) {
   if (!label) {
     return null;
   }
@@ -79,7 +80,7 @@ export function ColumnLabel({ label }: { label?: string }) {
   );
 }
 
-export function MenuItemDesc({ description }: { description?: string }) {
+function MenuItemDesc({ description }: { description?: string }) {
   if (!description) {
     return null;
   }
@@ -91,7 +92,7 @@ export function MenuItemDesc({ description }: { description?: string }) {
   );
 }
 
-export function MenuColumnItem({ url, newTab, label, children }: LinkItem) {
+function MenuColumnItem({ url, newTab, label, children }: LinkItem) {
   if (!label) {
     return null;
   }
@@ -102,6 +103,7 @@ export function MenuColumnItem({ url, newTab, label, children }: LinkItem) {
         href={url || "#"}
         className="text-sm font-semibold leading-none after:absolute after:inset-0"
         target={newTab ? "_blank" : "_self"}
+        rel={newTab ? "noopener noreferrer" : undefined}
       >
         {label}
       </Link>
@@ -110,7 +112,7 @@ export function MenuColumnItem({ url, newTab, label, children }: LinkItem) {
   );
 }
 
-export function HighLightBlock({ label, items, callToAction }: HighlightList) {
+function HighLightBlock({ label, items, callToAction }: HighlightList) {
   return (
     <div className="flex flex-col">
       <ColumnLabel label={label} />
@@ -142,6 +144,8 @@ export function HighLightBlock({ label, items, callToAction }: HighlightList) {
           <Link
             href={callToAction?.url || "#cta"}
             className="mt-8 flex items-center gap-1 text-sm font-semibold"
+            target={callToAction?.newTab ? "_blank" : undefined}
+            rel={callToAction?.newTab ? "noopener noreferrer" : undefined}
           >
             <span>{callToAction?.label}</span>
             <ArrowRight className="size-5" />

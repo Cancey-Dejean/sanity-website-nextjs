@@ -9,7 +9,7 @@ export const heroSection = defineType({
     defineField({
       name: "heading",
       type: "string",
-      title: "Title",
+      title: "Heading",
       validation: (rule) => rule.required(),
     }),
     // defineField({
@@ -29,7 +29,7 @@ export const heroSection = defineType({
     prepare(selection) {
       const { title, media } = selection;
       return {
-        title: title || "Robotos",
+        title: title || "Section Title",
         subtitle: "Hero",
         media: media || FaRegImage,
       };
