@@ -1,7 +1,11 @@
 "use client";
 import Container from "@/components/Container";
 import { Button } from "@/components/ui/button";
-import { IcSharpAttachMoney } from "@/components/ui/svgIcons";
+import {
+  IcSharpAttachMoney,
+  MaterialSymbolsLightCheck,
+  PhCopyDuotone,
+} from "@/components/ui/svgIcons";
 import { useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -22,11 +26,11 @@ export default function Hero() {
 
     setTimeout(() => {
       setCopySuccess("");
-    }, 2000); // Reset the message after 2 seconds
+    }, 1000); // Reset the message after 2 seconds
   };
 
   return (
-    <section className="flex h-full max-h-[1169px] min-h-[600px] items-center justify-center bg-red-50">
+    <section className="flex h-full max-h-[1169px] min-h-[600px] items-center justify-center">
       <Container className="flex flex-col items-center">
         <div className="flex flex-col items-center gap-8">
           <h1
@@ -59,19 +63,28 @@ export default function Hero() {
           <div className="flex items-center gap-2">
             <button
               onClick={copyToClipboard}
-              className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+              className="group relative flex size-10 items-center justify-center text-cyan-200"
             >
-              Copy Text
+              <IcSharpAttachMoney className="size-6 scale-100 text-[currentColor] transition-all duration-300 ease-in-out group-hover:scale-0" />
+
+              <span className="absolute left-1/2 top-1/2 flex size-10 -translate-x-1/2 -translate-y-1/2 scale-0 items-center justify-center rounded-full bg-cyan-200 text-black opacity-0 transition-all duration-300 ease-in-out group-hover:scale-100 group-hover:opacity-100">
+                <PhCopyDuotone className="size-7" />
+              </span>
+
+              {copySuccess && (
+                <span className="absolute left-1/2 top-1/2 z-[1] flex size-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-cyan-200 text-black">
+                  <MaterialSymbolsLightCheck className="size-7 transition-all duration-300 ease-in-out" />
+                  <span className="sr-only">{copySuccess}</span>
+                </span>
+              )}
             </button>
             <div
               ref={textRef}
-              className="rounded border border-gray-300 bg-gray-100 p-2"
+              className="rounded border border-gray-300 bg-gray-50 p-2"
             >
               npm create sanity@latest
             </div>
           </div>
-
-          {copySuccess && <p className="mt-2 text-green-500">{copySuccess}</p>}
         </div>
       </Container>
     </section>
