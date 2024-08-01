@@ -11,16 +11,15 @@ export default function SocialProof({ items }: { items: any }) {
           {items.map(({ images }: { images: any }, index: number) => {
             return (
               <div className="grid grid-cols-4 gap-12" key={index}>
-                {images.map(({ asset }: { asset: any }) => {
+                {images.map(({ asset, alt }: { asset: any; alt: string }) => {
                   return (
-                    <div key={index}>
-                      <Image
-                        src={asset.url}
-                        alt={asset.alt}
-                        width={asset.metadata.dimensions.width}
-                        height={asset.metadata.dimensions.height}
-                      />
-                    </div>
+                    <Image
+                      key={index}
+                      src={asset.url}
+                      alt={alt}
+                      width={asset.metadata.dimensions.width}
+                      height={asset.metadata.dimensions.height}
+                    />
                   );
                 })}
               </div>
