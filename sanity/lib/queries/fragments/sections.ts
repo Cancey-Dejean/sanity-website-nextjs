@@ -1,6 +1,7 @@
 import { groq } from "next-sanity";
 import { HERO_FIELDS } from "./heroFields";
 import { SOCIAL_PROOF_FIELDS } from "@/sanity/lib/queries/fragments/socialProofFields";
+import { NARRATIVE_FIELDS } from "@/sanity/lib/queries/fragments/narrativeFields";
 
 export const ALL_SECTIONS_QUERY = groq`
   _type == "hero" => {
@@ -9,5 +10,9 @@ export const ALL_SECTIONS_QUERY = groq`
   
   _type == "socialProof" => {
     ${SOCIAL_PROOF_FIELDS}
-  }
+  },
+  
+  _type == "narrative" => {
+    ${NARRATIVE_FIELDS}
+  },
 `;

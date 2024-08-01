@@ -21,7 +21,10 @@ export default function SocialProof({ images, hide }: SocialProofProps) {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.4]);
 
   return (
-    <div className={twMerge(hide && "hidden")} ref={containerRef}>
+    <div
+      className={twMerge("animate-fade-in", hide && "hidden")}
+      ref={containerRef}
+    >
       <Container>
         <motion.div
           className={`grid grid-cols-8 gap-x-9 gap-y-8 transition-all duration-300 ease-in-out`}

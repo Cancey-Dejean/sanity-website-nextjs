@@ -18,6 +18,7 @@ import { socialProof } from "@/sanity/schemas/sections/socialProof";
 import { customImage } from "@/sanity/schemas/singletons/customImage";
 import { button } from "@/sanity/schemas/objects/button";
 import { hideItem } from "@/sanity/schemas/singletons/hideItem";
+import { narrativeSection } from "@/sanity/schemas/sections/narrative";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -43,5 +44,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     // Sections
     heroSection,
     socialProof,
+    narrativeSection,
   ],
 };

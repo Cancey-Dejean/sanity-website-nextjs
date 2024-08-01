@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import React from "react";
 
 const containerSizes = {
-  base: "max-w-[1250px]",
+  base: "max-w-[1314px]",
 };
 
 export default function Container({
