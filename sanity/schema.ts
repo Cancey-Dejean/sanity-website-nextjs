@@ -17,7 +17,6 @@ import { socialProof } from "@/sanity/schemas/sections/socialProof";
 
 import { customImage } from "@/sanity/schemas/singletons/customImage";
 import { button } from "@/sanity/schemas/objects/button";
-import { socialProofGroup } from "@/sanity/schemas/objects/socialProofGroup";
 import { hideItem } from "@/sanity/schemas/singletons/hideItem";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
@@ -36,7 +35,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     subMenu,
     pageBlocks,
     logoTextLink,
-    socialProofGroup,
 
     // Singletons
     customImage,

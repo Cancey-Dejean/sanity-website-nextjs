@@ -7,16 +7,15 @@ export const socialProof = defineType({
   title: "Social Proof",
   fields: [
     {
-      name: "items",
-      title: "Items",
-      description: "Add 2 image groups for social proof section to work.",
+      name: "images",
+      title: "Images",
       type: "array",
       of: [
         {
-          type: "socialProofGroup",
+          type: "customImage",
         },
       ],
-      validation: (rule) => rule.required().min(2).max(2),
+      validation: (rule) => rule.required().min(8).max(16),
     },
     {
       name: "hide",

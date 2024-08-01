@@ -208,8 +208,13 @@ const config = {
           from: { fontWeight: "400" },
           to: { fontWeight: "700" },
         },
+        "fade-in": {
+          from: { opacity: "0" },
+          to: { opacity: "100" },
+        },
       },
       animation: {
+        "fade-in": "fade-in .3s ease-in .15s backwards",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "black-to-white":

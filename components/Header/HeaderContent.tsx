@@ -43,7 +43,7 @@ export default function HeaderContent({
   }
 
   return (
-    <header className="sticky top-0 z-[9] bg-white py-3">
+    <header className="animate-fade-in sticky top-0 z-[9] bg-white py-3">
       <Container className="z-10 flex items-center justify-between gap-5">
         <Link href="/">
           <Image
