@@ -47,3 +47,10 @@ export type Menu = {
   secondaryMenu?: SecondaryMenu | null;
   handleMobileMenu?: HandleMobileMenu;
 };
+
+export type Tab = {
+  id: string;
+  label: string;
+  heading?: string;
+  content?: any;
+};

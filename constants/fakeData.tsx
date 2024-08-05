@@ -35,3 +35,30 @@ const components: { title: string; href: string; description: string }[] = [
       "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
   },
 ];
+
+export const tabs = [
+  {
+    id: "world",
+    label: "World",
+    heading: "Multiexperience engagement",
+    content: "Content 1",
+  },
+  {
+    id: "ny",
+    label: "N.Y.",
+    heading: "Richer commerce experiences",
+    content: "Content 2",
+  },
+  {
+    id: "business",
+    label: "Captivating stories",
+    heading: "Heading 3",
+    content: "Content 3",
+  },
+  {
+    id: "arts",
+    label: "Arts",
+    heading: "Successful and satisfied users`",
+    content: "Content 4",
+  },
+];

@@ -2,7 +2,6 @@ import Container from "@/components/Container";
 import SectionTitle from "@/components/SectionTitle";
 import { Badge } from "@/components/ui/badge";
 import {
-  MaterialSymbolsLightCheck,
   PlatformSectionApiIllustration,
   PlatformSectionIllustrationLayers,
   PlatformSectionStudioIllustration,
@@ -10,6 +9,7 @@ import {
 import { twMerge } from "tailwind-merge";
 import Image from "next/image";
 import AnimatedTabs from "@/components/ui/animated-tabs";
+import { tabs } from "@/constants/fakeData";
 
 export default function Platform() {
   return (
@@ -81,7 +81,7 @@ export default function Platform() {
       </div>
 
       <div>
-        <AnimatedTabs />
+        <AnimatedTabs tabs={tabs} />
       </div>
     </section>
   );
