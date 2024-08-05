@@ -187,7 +187,7 @@
     }
 
     body {
-        @apply  font-inter antialiased;
+        @apply font-inter antialiased;
     }
 
     p {
@@ -202,6 +202,10 @@
         @apply font-inter;
     }
 
+    section {
+        @apply py-32;
+    }
+
 }
 
 @layer components {
@@ -210,12 +214,15 @@
         line-height: 1.1;
         letter-spacing: -.025em;
     }
+
     .display-md {
         font-size: var(--font-size-display-md);
     }
+
     .display-sm {
         font-size: var(--font-size-display-sm);
     }
+
     .heading-md {
         font-size: var(--font-size-heading-md);
     }

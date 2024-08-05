@@ -23,22 +23,21 @@ const titleSizes = {
 };
 
 export default function SectionTitle({
-  as: Comp = "h1",
   className,
   size = "heading-lg",
   children,
-  ...restProps
-}: SectionTitleProps) {
+}: SectionTitleProps & React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <Comp
+    <div
       className={cn(
-        "leading-[1.1] tracking-[-.025em]",
+        "text-center [&_em]:relative [&_em]:inline-block [&_em]:animate-black-to-white [&_em]:not-italic [&_em]:text-white [&_em]:will-change-[color] [&_em]:[margin-inline:.125em]",
+        "tracking-[-1.5px] [&_em]:isolate [&_em]:before:absolute [&_em]:before:left-[-.1ch] [&_em]:before:top-0 [&_em]:before:z-[-1] [&_em]:before:h-full [&_em]:before:w-[calc(100%+.3ch)] [&_em]:before:origin-left [&_em]:before:animate-hero-text-slide [&_em]:before:bg-salmon [&_em]:before:text-white [&_em]:before:content-['_']",
+        "[&_strong]:animate-hero-bold [&_strong]:font-bold [&_strong]:will-change-[color]",
         titleSizes[size],
         className,
       )}
-      {...restProps}
     >
       {children}
-    </Comp>
+    </div>
   );
 }

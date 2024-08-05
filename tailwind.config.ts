@@ -142,10 +142,10 @@ const config = {
     },
     extend: {
       fontSize: {
-        "display-lg": "var(--size-display-lg)", // 56px - 104px
-        "display-md": "var(--size-display-md)", // 36px - 72px
-        "display-sm": "var(--size-display-sm)", // 50px - 60px
-        "heading-md": "var(--size-heading-md)", // 28px - 28px
+        "display-lg": "display-lg", // 56px - 104px
+        "display-md": "display-md", // 36px - 72px
+        "display-sm": "display-sm", // 50px - 60px
+        "heading-md": "heading-md", // 28px - 28px
       },
       colors: {
         border: "hsl(var(--border))",

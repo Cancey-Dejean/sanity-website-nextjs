@@ -3,7 +3,12 @@ import { defineType } from "sanity";
 export const pageBlocks = defineType({
   name: "pageBlocks",
   type: "array",
-  of: [{ type: "hero" }, { type: "socialProof" }, { type: "narrative" }],
+  of: [
+    { type: "hero" },
+    { type: "socialProof" },
+    { type: "narrative" },
+    { type: "platform" },
+  ],
   options: {
     insertMenu: {
       groups: [
