@@ -1,11 +1,21 @@
 import Container from "@/components/Container";
 import { twMerge } from "tailwind-merge";
 import { PortableText, PortableTextBlock } from "next-sanity";
+import ButtonGroup from "@/components/ButtonGroup";
+import { ButtonGroupProps } from "@mui/material";
 
-export default function Narrative({ heading }: { heading: PortableTextBlock }) {
+export default function Narrative({
+  heading,
+  subHeading,
+  buttons,
+}: {
+  heading: PortableTextBlock;
+  subHeading?: PortableTextBlock;
+  buttons: [];
+}) {
   return (
     <div className="py-48 text-center">
-      <Container>
+      <Container className="flex flex-col items-center justify-center gap-12">
         <div
           className={twMerge(
             "display-sm",
@@ -14,8 +24,14 @@ export default function Narrative({ heading }: { heading: PortableTextBlock }) {
             "[&_strong]:animate-hero-bold [&_strong]:font-bold [&_strong]:will-change-[color]",
           )}
         >
-          <PortableText value={heading || "Heading"} />
+          <PortableText value={heading || "This is the Heading"} />
         </div>
+
+        <div className="mx-auto max-w-[56rem] text-xl">
+          <PortableText value={subHeading as any} />
+        </div>
+
+        {buttons && buttons.length > 0 && <ButtonGroup buttons={buttons} />}
       </Container>
     </div>
   );

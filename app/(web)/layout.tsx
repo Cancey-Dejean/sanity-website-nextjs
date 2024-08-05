@@ -34,7 +34,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable}`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${sourceSerif4.variable} ${jetBrainsMono.variable}`}
+    >
       <body>
         {draftMode().isEnabled && (
           <div>

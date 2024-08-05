@@ -49,7 +49,7 @@ export default function Hero({
   return (
     <section
       className={twMerge(
-        "animate-fade-in flex h-[85dvh] min-h-[575px] items-center justify-center",
+        "flex h-[85dvh] min-h-[575px] animate-fade-in items-center justify-center",
         hide && "hidden",
       )}
     >
@@ -70,11 +70,7 @@ export default function Hero({
             <p>{subHeading}</p>
           </div>
 
-          {buttons.length > 0 && (
-            <div className="flex items-center gap-3">
-              <ButtonGroup buttons={buttons} />
-            </div>
-          )}
+          {buttons && buttons.length > 0 && <ButtonGroup buttons={buttons} />}
         </div>
 
         {copyPasteText && (
