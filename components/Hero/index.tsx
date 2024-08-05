@@ -57,21 +57,10 @@ export default function Hero({
         <div className="flex flex-col items-center gap-8">
           <SectionTitle
             size="display-lg"
-            className="text-center tracking-[-1.5px]"
+            className="text-center tracking-[-.025em]"
           >
             <PortableText value={heading || "Heading"} />
           </SectionTitle>
-
-          {/*<div*/}
-          {/*  className={twMerge(*/}
-          {/*    "display-lg",*/}
-          {/*    "text-center [&_em]:relative [&_em]:inline-block [&_em]:animate-black-to-white [&_em]:not-italic [&_em]:text-white [&_em]:will-change-[color] [&_em]:[margin-inline:.125em]",*/}
-          {/*    "tracking-[-1.5px] [&_em]:isolate [&_em]:before:absolute [&_em]:before:left-[-.1ch] [&_em]:before:top-0 [&_em]:before:z-[-1] [&_em]:before:h-full [&_em]:before:w-[calc(100%+.3ch)] [&_em]:before:origin-left [&_em]:before:animate-hero-text-slide [&_em]:before:bg-salmon [&_em]:before:text-white [&_em]:before:content-['_']",*/}
-          {/*    "[&_strong]:animate-hero-bold [&_strong]:font-bold [&_strong]:will-change-[color]",*/}
-          {/*  )}*/}
-          {/*>*/}
-          {/*  <PortableText value={heading || "Heading"} />*/}
-          {/*</div>*/}
 
           <div className="mx-auto max-w-[50rem] text-balance text-center text-2xl tracking-[-0.48px]">
             <p>{subHeading}</p>
