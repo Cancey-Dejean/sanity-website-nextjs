@@ -1,5 +1,4 @@
 import React, { SVGProps } from "react";
-import { cn } from "@/lib/utils";
 
 export const HamburgerMenu = (props: SVGProps<SVGSVGElement>) => {
   return (

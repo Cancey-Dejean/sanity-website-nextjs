@@ -8,6 +8,8 @@ import {
   PlatformSectionStudioIllustration,
 } from "@/components/ui/svgIcons";
 import { twMerge } from "tailwind-merge";
+import Image from "next/image";
+import AnimatedTabs from "@/components/ui/animated-tabs";
 
 export default function Platform() {
   return (
@@ -22,10 +24,27 @@ export default function Platform() {
             Sanity Composable Content Cloud
           </SectionTitle>
         </div>
+      </Container>
 
+      <div className="relative">
         <div className="mx-auto grid max-w-[1036px] grid-cols-[1fr_240px_1fr] grid-rows-3 gap-12">
-          {/* SVGs */}
+          <Image
+            src="/images/platform-section-left.svg"
+            alt="Platform illustration"
+            width={214}
+            height={473}
+            className="absolute left-0 h-full"
+          />
 
+          <Image
+            src="/images/platform-section-right.svg"
+            alt="Platform illustration"
+            width={254}
+            height={473}
+            className="absolute right-0 h-full"
+          />
+
+          {/* SVGs */}
           <div className="col-start-2 row-span-3 grid gap-6">
             <PlatformSectionStudioIllustration />
 
@@ -59,7 +78,11 @@ export default function Platform() {
             />
           </div>
         </div>
-      </Container>
+      </div>
+
+      <div>
+        <AnimatedTabs />
+      </div>
     </section>
   );
 }
@@ -75,7 +98,7 @@ function TextGroup({
 }) {
   return (
     <div className={twMerge(alignment === "left" ? "text-left" : "text-right")}>
-      <Badge>{title}</Badge>
+      <Badge className="mb-3 hover:bg-gray-800">{title}</Badge>
       <p>{description}</p>
     </div>
   );
