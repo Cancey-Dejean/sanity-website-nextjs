@@ -41,24 +41,30 @@ export const tabs = [
     id: "world",
     label: "World",
     heading: "Multiexperience engagement",
-    content: "Content 1",
+    content: {
+      title: "Content 1",
+    },
   },
   {
     id: "ny",
     label: "N.Y.",
     heading: "Richer commerce experiences",
-    content: "Content 2",
+    content: {
+      title: "Content 2",
+    },
   },
   {
     id: "business",
     label: "Captivating stories",
     heading: "Heading 3",
-    content: "Content 3",
+    content: {
+      title: "Content 3",
+    },
   },
   {
     id: "arts",
     label: "Arts",
     heading: "Successful and satisfied users`",
-    content: "Content 4",
+    type: "default",
   },
 ];

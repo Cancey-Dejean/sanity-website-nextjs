@@ -1,4 +1,5 @@
 import { ButtonProps } from "@/components/ui/button";
+import React from "react";
 
 export type LinkItem = {
   children?: React.ReactNode;
@@ -52,5 +53,5 @@ export type Tab = {
   id: string;
   label: string;
   heading?: string;
-  content?: any;
+  type?: "default" | "case";
 };
